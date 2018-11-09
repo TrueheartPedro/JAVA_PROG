@@ -1,0 +1,26 @@
+Erste Frage:
+
+  Zuerst müssen die Klammer gelöst werden.
+    !(x || y) = !(true || false) = !(true) = false
+    (x && !y) = (true && !false) = (true && true) = true
+  Dann kann die Gleichung etwas vereinfacht werden.
+    !(x || y) & z | (x && !y) ^ !z = false & z | true ^ !z = false & true | true ^ !true
+  Diese Gleichung ist eine bitweise Veroderung zweier Operationen. Hier sollten alle Operanden idealerweise
+  logische statt bitweise Operanden sein, aber in diesem Fall macht es keinen Unterschied.
+    false & true = false; true ^ !true = true ^ false = true;
+  Dadurch vereinfacht sich die Gleichung auf:
+    false & true | true ^ !true = false | true = true
+
+Zweite Frage:
+
+  Wegen der Methode mit der Floats gespeichert werden (Mantisse, Exponent und Vorzeichen),
+  können manche Zahlen nur ungenau gespeichert werden. Da 1000.0F keine 2er Potenz ist,
+  kann es bei der Berechnung mit diesem float zu Ungenauigkeiten kommen. Dadurch sind
+  beide Ergebnisse nicht gleich, obwohl genau die gleiche Zahlen addiert werden.
+
+Dritte Frage:
+
+  Bei der Addition von primitiven Variablentypen, die kleiner sind als ein int, bspw. ein short oder
+  ein byte, kommt es in Java zu einer Umrechnung in int. Da die Addition von a + b wie gesagt ein
+  int ergibt, kann es nicht dem byte c zugewiesen werden. Deklariert man c als int statt byte,
+  so funktioniert das Code einwandfrei.
