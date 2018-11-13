@@ -6,5 +6,11 @@ public class Agency {
   float latitude, longitude;
   float[] position = {latitude,longitude};
 
+  /*
+  *This declaration is not well thought out, since each Agency
+  *will have to know exactly how many Actors it will have at the moment
+  *it is instanced. Same applies for all Array declarations where the
+  *length isn't specified. Lists would be more suitable.
+  */
   Actor[] actors;
 }
